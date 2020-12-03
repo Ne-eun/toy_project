@@ -1,14 +1,20 @@
 import React from 'react';
-import LeftNav from '../components/Left_Nav.jsx'
+import styled from 'styled-components';
+import '../css/general.css'
+import LeftWrap from '../components/Left/Left_Wrap'
 import RightContents from '../router/Right_Contents.jsx'
 
+const AdminStyle = styled.div`
+	display: flex;
+	position: relative;
+`
 
 function Administrator() {
 	return(
-		<>
-			<LeftNav />
+		<AdminStyle>
+			<LeftWrap />
 			<RightContents />
-		</>
+		</AdminStyle>
 	)
 }
 
