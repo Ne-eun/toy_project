@@ -1,7 +1,7 @@
 import React from "react";
 import RightHeader from "../components/Rights/Right_Header";
 import styled from "styled-components";
-import RightRouter from "../router/Right_Router";
+import MakingContents from "../router/Right_Router";
 const RightWrapStyle = styled.div`
   padding: 110px 74px;
   margin-left: 240px;
@@ -30,7 +30,7 @@ function RightWrap() {
   return (
     <RightWrapStyle>
       <RightHeader />
-      <RightRouter />
+      <MakingContents />
     </RightWrapStyle>
   );
 }

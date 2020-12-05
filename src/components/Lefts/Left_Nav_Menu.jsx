@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import { Link } from "react-router-dom";
 import { colorSet } from "../Atoms/theme";
 import Arrow from "../Atoms/AtomArrow";
+import GoPage from "../Atoms/AtomGo_Page";
 
 const MenuNavStyle = styled.div`
   font-size: 19px;
@@ -34,13 +34,6 @@ const MenuNavStyle = styled.div`
       font-size: 16px;
       font-weight: normal;
       cursor: pointer;
-      a {
-        text-decoration: none;
-        color: ${colorSet.black};
-      }
-      &:hover {
-        font-weight: bold;
-      }
     }
   }
 `;
@@ -62,7 +55,7 @@ function LeftNavMenu({ data }) {
           <ul className={isToggle ? "on" : null}>
             {data.items.map((menuList, index) => (
               <li key={index}>
-                <Link to={menuList.link}>{menuList.title}</Link>
+                <GoPage to={menuList.link} title={menuList.title} />
               </li>
             ))}
           </ul>

@@ -73,7 +73,7 @@ function LeftWrap() {
         <LeftNavMenu key={index} data={menus} />
       ))}
 
-      <GoPage title="1hour로 돌아가기" />
+      <GoPage title="1hour로 돌아가기" underline />
     </LeftWrapStyle>
   );
 }

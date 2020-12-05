@@ -1,26 +1,31 @@
 import React from "react";
+import { Link, NavLink } from "react-router-dom";
 import styled, { css } from "styled-components";
 import { colorSet } from "./theme";
 
-const GoPageStyle = styled.a`
+const GoPageStyle = styled(Link, NavLink)`
   ${props => {
-    const { color } = props;
+    const { color, underline } = props;
 
     return css`
       display: inline-block;
-      margin-top: 80px;
       padding-left: 4px;
       font-size: 15px;
       color: ${color || colorSet.black};
-      text-decoration: underline;
+      text-decoration: ${underline ? "underline" : "none"};
       font-weight: 400;
+
+      &:hover,
+      &.on {
+        font-weight: bold;
+      }
     `;
   }}
 `;
 
-function GoPage({ title, color }) {
+function GoPage({ title, color, underline, to, ...rest }) {
   return (
-    <GoPageStyle href="#" color={color}>
+    <GoPageStyle to={to} color={color} underline={underline} {...rest}>
       {title}
     </GoPageStyle>
   );
