@@ -32,6 +32,7 @@ function Arrow({ color, left, top, size, on, ...rest }) {
       left={left}
       top={top}
       size={size}
+      on={on}
       {...rest}
     ></ArrowStyle>
   );
