@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 import { colorSet } from "../Atoms/theme";
 import Arrow from "../Atoms/AtomArrow";
 
@@ -33,6 +34,10 @@ const MenuNavStyle = styled.div`
       font-size: 16px;
       font-weight: normal;
       cursor: pointer;
+      a {
+        text-decoration: none;
+        color: ${colorSet.black};
+      }
       &:hover {
         font-weight: bold;
       }
@@ -56,7 +61,9 @@ function LeftNavMenu({ data }) {
         {data.items ? (
           <ul className={isToggle ? "on" : null}>
             {data.items.map((menuList, index) => (
-              <li key={index}>{menuList.title}</li>
+              <li key={index}>
+                <Link to={menuList.link}>{menuList.title}</Link>
+              </li>
             ))}
           </ul>
         ) : null}

@@ -16,16 +16,14 @@ function MakingContents() {
   return (
     <BrowserRouter>
       <Router>
-        <div className="right_wrap">
-          <Switch>
-            {/* Switch : /일때, /하위 경로일때 모두 화면에 출력되지 않도록 한다. */}
-            <Route exact path="/" component={Video} />
-            <Route exact path="/making/sentence" component={Sentence} />
-            <Route exact path="/making/sync" component={Sync} />
-            <Route exact path="/making/word" component={Word} />
-            <Route exact path="/making/quiz" component={Quiz} />
-          </Switch>
-        </div>
+        <Route exact path="/" component={Video} />
+        <Switch>
+          {/* Switch : /일때, /하위 경로일때 모두 화면에 출력되지 않도록 한다. */}
+          <Route exact path="/making/sentence" component={Sentence} />
+          <Route exact path="/making/sync" component={Sync} />
+          <Route exact path="/making/word" component={Word} />
+          <Route exact path="/making/quiz" component={Quiz} />
+        </Switch>
       </Router>
     </BrowserRouter>
   );

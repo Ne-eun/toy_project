@@ -28,19 +28,19 @@ const NavMenus = [
       },
       {
         title: "문장 만들기",
-        link: "/"
+        link: "/making/sentence"
       },
       {
         title: "싱크 맞추기",
-        link: "/"
+        link: "/making/sync"
       },
       {
         title: "단어 만들기",
-        link: ""
+        link: "/making/word"
       },
       {
         title: "문제 만들기",
-        link: ""
+        link: "/making/quiz"
       }
     ]
   },
@@ -57,11 +57,11 @@ const NavMenus = [
       }
     ]
   },
-  { title: "카테고리 관리" },
-  { title: "플레이리스트 관리" },
-  { title: "배너 관리" },
-  { title: "회원 관리" },
-  { title: "기관 관리" }
+  { title: "카테고리 관리", link: "" },
+  { title: "플레이리스트 관리", link: "" },
+  { title: "배너 관리", link: "" },
+  { title: "회원 관리", link: "" },
+  { title: "기관 관리", link: "" }
 ];
 
 function LeftWrap() {
