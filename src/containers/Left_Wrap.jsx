@@ -25,7 +25,7 @@ const MENU = [
     items: [
       {
         title: "영상 마법사",
-        link: "/"
+        link: "/making"
       },
       {
         title: "문장 만들기",

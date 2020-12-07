@@ -6,7 +6,7 @@ import GoPage from "../Atoms/AtomGo_Page";
 
 const MenuNavStyle = styled.div`
   font-size: 19px;
-  color: $black;
+  color: ${ colorSet.black };
   font-weight: bold;
   line-height: 50px;
 

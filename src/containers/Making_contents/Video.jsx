@@ -1,7 +1,12 @@
 import React from "react";
 
+
 function Video() {
-  return <div>비디오 업로드</div>;
+  return(
+    <React.Fragment>
+      <div>비디오 업로드</div>
+    </React.Fragment>
+  )
 }
 
 export default Video;
