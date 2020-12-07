@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import styled from "styled-components";
 import { colorSet } from "../Atoms/theme";
 import Arrow from "../Atoms/AtomArrow";
@@ -22,10 +22,12 @@ const MenuNavStyle = styled.div`
     background: ${colorSet.backgray};
     color: ${colorSet.subtitle};
     border-radius: 3px 3px;
-    transition: max-height 0.8s;
+    transition: max-height 0.5s;
 
     &.on {
       max-height: 500px;
+      transition: max-height 0.8s;
+
     }
 
     li {
@@ -38,21 +40,19 @@ const MenuNavStyle = styled.div`
   }
 `;
 
-function LeftNavMenu({ data }) {
-  const [isToggle, setIsToggle] = useState(false);
-
+function LeftNavMenu({ data, onClick, itemIndex }) {
   const toggle = () => {
-    setIsToggle(!isToggle);
+    onClick(itemIndex);
   };
 
   return (
     <React.Fragment>
       <MenuNavStyle>
         <p onClick={toggle}>
-          {data.title} {data.items ? <Arrow on={isToggle} /> : null}
+          {data.title} {data.items ? <Arrow on={data.isVisible} /> : null}
         </p>
         {data.items ? (
-          <ul className={isToggle ? "on" : null}>
+          <ul className={data.isVisible ? "on" : null}>
             {data.items.map((menuList, index) => (
               <li key={index}>
                 <GoPage to={menuList.link} title={menuList.title} />
