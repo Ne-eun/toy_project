@@ -66,8 +66,6 @@ const MENU = [
   { title: "기관 관리", isVisible: false, link: "" }
 ];
 
-
-
 function LeftWrap() {
   const [menu, setMenu] = useState(MENU)
 

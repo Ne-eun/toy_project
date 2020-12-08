@@ -1,4 +1,5 @@
 import React from "react";
+import { withRouter } from 'react-router-dom';
 import styled from "styled-components";
 import { colorSet } from "../Atoms/theme";
 import Arrow from "../Atoms/AtomArrow";
@@ -40,10 +41,23 @@ const MenuNavStyle = styled.div`
   }
 `;
 
-function LeftNavMenu({ data, onClick, itemIndex }) {
+function LeftNavMenu({ data, onClick, itemIndex, location }) {
   const toggle = () => {
     onClick(itemIndex);
   };
+
+  const validation = () => {
+    let count = 0;
+    data.items.map(itemLink => {
+      itemLink.link === location.pathname && count++
+    })
+
+    if(count > 0){
+      return true
+    }else {
+      return false
+    }
+  }
 
   return (
     <React.Fragment>
@@ -52,10 +66,14 @@ function LeftNavMenu({ data, onClick, itemIndex }) {
           {data.title} {data.items ? <Arrow on={data.isVisible} /> : null}
         </p>
         {data.items ? (
-          <ul className={data.isVisible ? "on" : null}>
+          <ul className={(data.isVisible || validation() ) ? "on" : null }>
             {data.items.map((menuList, index) => (
               <li key={index}>
-                <GoPage to={menuList.link} title={menuList.title} />
+                <GoPage 
+                  to={menuList.link}
+                  title={menuList.title}
+                  className={menuList.link === location.pathname ? "on" : null}
+                />
               </li>
             ))}
           </ul>
@@ -65,4 +83,4 @@ function LeftNavMenu({ data, onClick, itemIndex }) {
   );
 }
 
-export default LeftNavMenu;
+export default withRouter(LeftNavMenu);

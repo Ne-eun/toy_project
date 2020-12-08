@@ -4,7 +4,9 @@ import { colorSet } from "./theme";
 
 const ArrowStyle = styled.span`
   ${props => {
-    const { color, left, top, size, on } = props;
+    const {
+ color, left, top, size, on 
+} = props;
 
     return css`
       position: absolute;
@@ -25,7 +27,9 @@ const ArrowStyle = styled.span`
   }}
 `;
 
-function Arrow({ color, left, top, size, on, ...rest }) {
+function Arrow({
+ color, left, top, size, on, ...rest 
+}) {
   return (
     <ArrowStyle
       color={color}
@@ -34,7 +38,7 @@ function Arrow({ color, left, top, size, on, ...rest }) {
       size={size}
       on={on}
       {...rest}
-    ></ArrowStyle>
+    />
   );
 }
 
