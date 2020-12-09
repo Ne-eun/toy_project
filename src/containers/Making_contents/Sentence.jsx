@@ -7,25 +7,27 @@ import Button from '../../components/Atoms/AtomButton'
 
 
 const LeftSize = {
-  width: '100%'
+  width: '100%',
+  height: '100%'
 }
 const rightSize = {
-  width: '100%'
+  width: '100%',
+  height: '100%'
 }
 
 
 const CaptionsEn = [
-  'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus id vehicula turpis, ut viverra sem.',
-  'sit amet, consectetur adipiscing elit. Vivamus id vehicula turpis, ut viverra sem.',
-  'Lorem , consectetur adipiscing elit. Vivamus id vehicula turpis, ut viverra sem.',
-  'LoremLoremLoremLoremLoremLoremLorem ipsum dolor sit amed vehicula turpis, ut viverra sem.',
+  'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+  'sit amet, consectetur adipiscing elit. urpis, ut viverra sem.',
+  'Lorem , consectetur adipiscing elit. Vivamus id veem.',
+  'LoremLoremLoremLoremLoremLo turpis, ut viverra sem.',
 ]
 
 const CaptionsKo = [
-    '한국번역ur adipiscing elit. Vivamus id vehicula turpis, ut viverra sem.',
-    '한국번역2ctetur adipiscing elit. Vivamus id vehicula turpis, ut viverra sem.',
-    '하눅Lorem , consectetur adipiscing elit. Vivamus id vehicula turpis, ut viverra sem.',
-    '한국한국LoremLoremLoremLoremLoremLoremLorem ipsum dolo한국한국LoremLoremLoremLoremLoremLoremLorem ipsum dolor sit amed vehicr sit amed vehicula turpis, ut viverra sem.',
+    '한국번역ur adipiscing elit. Vivamus id verra sem.',
+    '한국번역2ctetur adipiscing elit. Vivamus id vehica sem.',
+    '하눅Lorem , consectetur adipiid vehicula turpis, ut viverra sem.',
+    '한국한국LoremLoremLoremLoremLoremLoremLorem iverra sem.',
 ]
 
 function Sentence() {
@@ -41,12 +43,12 @@ function Sentence() {
           <Caption data={captionEn} />
         </div>
         <div style={rightSize} className="ml_24">
-          <Label className="mid">`한국어 뜻 (자동으로 입력됩니다)`</Label>
+          <Label className="mid">한국어 뜻 (자동으로 입력됩니다)</Label>
           <Subscript className="mb_12"></Subscript>
           <Caption data={captionKo} />
         </div>
       </Layout2>
-      <div>
+      <div className="mt_40">
         <Button className="pull_left gray">이전</Button>
         <Button className="pull_right">저장하고 다음으로</Button>
       </div>

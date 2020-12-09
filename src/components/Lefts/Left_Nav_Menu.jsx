@@ -63,16 +63,16 @@ function LeftNavMenu({ data, onClick, itemIndex, location }) {
     <React.Fragment>
       <MenuNavStyle>
         <p onClick={toggle}>
-          {data.title} {data.items ? <Arrow on={data.isVisible} /> : null}
+          {data.title} {data.items ? <Arrow on={data.isVisible} /> : undefined}
         </p>
         {data.items ? (
-          <ul className={(data.isVisible || validation() ) ? "on" : null }>
+          <ul className={(data.isVisible || validation() ) ? "on" : undefined }>
             {data.items.map((menuList, index) => (
               <li key={index}>
                 <GoPage 
                   to={menuList.link}
                   title={menuList.title}
-                  className={menuList.link === location.pathname ? "on" : null}
+                  className={menuList.link === location.pathname ? "on" : undefined}
                 />
               </li>
             ))}

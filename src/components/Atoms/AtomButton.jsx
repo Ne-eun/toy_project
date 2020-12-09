@@ -15,7 +15,11 @@ const ButtonStyle = styled.button`
 			border: none;
 			border-radius: 6px; 
 			box-shadow: 0 3px 6px ${colorSet.shadow};
-
+			&.small {
+				font-size: 10px;
+				padding: 4px 18px;
+				border-radius: 4px;
+			}
 			&.pull_right {
 				float: right;
 			}

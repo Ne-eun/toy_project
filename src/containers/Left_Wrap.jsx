@@ -87,7 +87,7 @@ function LeftWrap() {
         <LeftNavMenu key={index} data={menus} onClick={selectIndex} itemIndex={index} />
       ))}
 
-      <GoPage title="1hour로 돌아가기" underline />
+      <GoPage title="1hour로 돌아가기" underline="true" />
     </LeftWrapStyle>
   );
 }
