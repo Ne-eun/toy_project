@@ -2,7 +2,9 @@ import React from "react";
 import styled, { css } from "styled-components";
 import { colorSet } from "./theme";
 
-import plus from '../../images/addRow.png'
+import plus from '../../images/addRow.png';
+import closeX from '../../images/delete.png'
+
 
 const ButtonStyle = styled.button`
   ${props => {
@@ -52,22 +54,32 @@ const ButtonStyle = styled.button`
 				color: ${colorSet.subtitle}
 			}
 			&.plus {
+				width: 45px;
+				height: 45px;
+				padding: 0;
 				background-color: transparent;
 				box-shadow: none;
 				background-image: url(${plus});
-				width: 45px;
-				height: 45px;
+			}
+			&.close {
+				width: 31px;
+				height: 31px;
+				padding: 0;
+				background-color: transparent;
+				box-shadow: none;
+				background-image: url(${closeX});
 			}
     `;
   }}
 `;
 
-function Button({ color, textColor, className, children }) {
+function Button({ color, textColor, className, children, ...rest }) {
   return (
 		<ButtonStyle
 			className={className}
 			color={color}
 			textColor={textColor}
+			{...rest}
 		>
       {children}
     </ButtonStyle>

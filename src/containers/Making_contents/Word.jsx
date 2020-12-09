@@ -4,20 +4,17 @@ import LayoutFlex from '../../components/Atoms/AtomLayoutFlex'
 import Button from '../../components/Atoms/AtomButton'
 import Input from '../../components/Atoms/AtomInput'
 import Title from '../../components/Atoms/AtomTitle'
-import closeX from '../../images/delete.png'
 import RowWrap from '../../components/Atoms/AtomRowWrap'
 
 const PlusButton = styled.div`
   text-align: center;
   margin-top: 50px;
-  margin-left: -60px;
   > p {
     margin-top: 16px;
   }
 `
 const LeftSize = {
-  width: '100%',
-  marginLeft: '-60px'
+  width: '100%'
 }
 const rightSize = {
   width: '100%',
@@ -58,7 +55,7 @@ function Word() {
           {words.map((word, index) => (
             <RowWrap>
               <Input key={index} placeholder="한국어 뜻을 입력하세요" value={word.ko}/>
-              <img src={closeX} alt="닫기"/>
+              <Button className="close"></Button>
             </RowWrap>
           ))}
         </div>

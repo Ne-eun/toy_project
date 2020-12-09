@@ -12,7 +12,7 @@ display: flex;
 	box-sizing: border-box;
 	padding: 18px;
 }
-> img {
+> button {
 	width: 30px;
 	height: 30px;
 	margin-top: 18px;
@@ -20,9 +20,9 @@ display: flex;
 }
 `
 
-function RowWrap({ children, className }) {
+function RowWrap({ children, className, ...rest }) {
   return (
-		<RowStyle className={className}>{children}</RowStyle>
+		<RowStyle className={className} {...rest}>{children}</RowStyle>
   );
 }
 

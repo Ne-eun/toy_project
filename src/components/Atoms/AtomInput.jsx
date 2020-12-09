@@ -1,5 +1,5 @@
-import React, { Children } from "react";
-import styled, { css } from "styled-components";
+import React from "react";
+import styled from "styled-components";
 import { colorSet } from "./theme";
 
 const InputStyle = styled.input`
@@ -26,13 +26,6 @@ const InputStyle = styled.input`
 	}
 `;
 
-const LabelStyle = styled.label`
-	display: inline-block;
-	font-size: 17px;
-	color: ${colorSet.black};
-	font-weight: bold;
-	margin-bottom: 8px;
-`
 
 function InputSet({ placeholder, value, disabled, name }) {
   return (
