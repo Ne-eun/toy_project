@@ -8,6 +8,10 @@
 	letter-spacing: -0.05em;
 }
 
+*:focus {
+	outline: none;
+}
+
 .mt_4 {margin-top: 4px;}
 .mt_8 {margin-top: 8px;}
 .mt_12 {margin-top: 12px;}

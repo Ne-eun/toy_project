@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import Layout2 from '../../components/Atoms/AtomLayout2'
+import LayoutFlex from '../../components/Atoms/AtomLayoutFlex'
 import Label from '../../components/Atoms/AtomLabel'
-import Subscript from '../../components/Atoms/AtomSubscript'
+import Title from '../../components/Atoms/AtomTitle'
 import Caption from '../../components/Rights/Caption'
 import Button from '../../components/Atoms/AtomButton'
 
@@ -36,18 +36,18 @@ function Sentence() {
 
   return (
     <React.Fragment>
-      <Layout2 className="justify_btw">
+      <LayoutFlex className="justify_btw">
         <div style={LeftSize}>
           <Label className="mid">영어 가사/캡션</Label>
-          <Subscript className="mb_12">영어 원문 또는 한국어 번역을 직접 수정하려면 입력창을 클릭하세요.</Subscript>
+          <Title className="sub mb_12">영어 원문 또는 한국어 번역을 직접 수정하려면 입력창을 클릭하세요.</Title>
           <Caption data={captionEn} />
         </div>
         <div style={rightSize} className="ml_24">
           <Label className="mid">한국어 뜻 (자동으로 입력됩니다)</Label>
-          <Subscript className="mb_12"></Subscript>
+          <Title className="sub mb_12"></Title>
           <Caption data={captionKo} />
         </div>
-      </Layout2>
+      </LayoutFlex>
       <div className="mt_40">
         <Button className="pull_left gray">이전</Button>
         <Button className="pull_right">저장하고 다음으로</Button>

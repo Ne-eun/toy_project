@@ -2,6 +2,8 @@ import React from "react";
 import styled, { css } from "styled-components";
 import { colorSet } from "./theme";
 
+import plus from '../../images/addRow.png'
+
 const ButtonStyle = styled.button`
   ${props => {
     const { color, textColor } = props;
@@ -15,6 +17,7 @@ const ButtonStyle = styled.button`
 			border: none;
 			border-radius: 6px; 
 			box-shadow: 0 3px 6px ${colorSet.shadow};
+			cursor: pointer;
 			&.small {
 				font-size: 10px;
 				padding: 4px 18px;
@@ -47,6 +50,13 @@ const ButtonStyle = styled.button`
 			&.gray {
 				background-color: ${colorSet.gray};
 				color: ${colorSet.subtitle}
+			}
+			&.plus {
+				background-color: transparent;
+				box-shadow: none;
+				background-image: url(${plus});
+				width: 45px;
+				height: 45px;
 			}
     `;
   }}
