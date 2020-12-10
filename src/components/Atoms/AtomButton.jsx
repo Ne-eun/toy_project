@@ -4,6 +4,7 @@ import { colorSet } from "./theme";
 
 import plus from '../../images/addRow.png';
 import closeX from '../../images/delete.png'
+import setting from '../../images/setting.png'
 
 
 const ButtonStyle = styled.button`
@@ -24,6 +25,9 @@ const ButtonStyle = styled.button`
 				font-size: 10px;
 				padding: 4px 18px;
 				border-radius: 4px;
+			}
+			&.center {
+				margin: 0 auto;
 			}
 			&.pull_right {
 				float: right;
@@ -68,6 +72,14 @@ const ButtonStyle = styled.button`
 				background-color: transparent;
 				box-shadow: none;
 				background-image: url(${closeX});
+			}
+			&.setting {
+				width: 20px;
+				height: 20px;
+				padding: 0;
+				background-color: transparent;
+				box-shadow: none;
+				background-image: url(${setting});
 			}
     `;
   }}

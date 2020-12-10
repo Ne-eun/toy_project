@@ -51,11 +51,11 @@ const MENU = [
     items: [
       {
         title: "콘텐츠 관리",
-        link: ""
+        link: "/admin"
       },
       {
         title: "과제마감 관리",
-        link: ""
+        link: "/admin/task"
       }
     ]
   },

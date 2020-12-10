@@ -7,15 +7,22 @@ const TitleStyle = styled.p`
 	color: ${props => props.color ? props.color : colorSet.black};
 	font-size: 18px;
 	font-weight: 400;
+	&.mid {
+		font-size: 16px;
+	}
 	&.sub {
 		font-size: 13px;
+		height: 20px;
 		color: ${props => props.color ? props.color : colorSet.subtitle};
 	}
 	&.bold {
-		font-weight: 500;
+		font-weight: 600;
 	}
 	&.gray {
 		color: ${colorSet.subtitle};
+	}
+	&.white {
+		color: white;
 	}
 `
 
