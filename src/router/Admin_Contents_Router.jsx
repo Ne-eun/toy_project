@@ -1,8 +1,8 @@
-import React from "react";
-import { Switch, Route } from "react-router-dom";
+import React from 'react';
+import { Switch, Route } from 'react-router-dom';
 
-import EditContents from "../containers/Admin_contents/Edit_Contents";
-import ClosingTask from "../containers/Admin_contents/Closing_Task";
+import EditContents from '../containers/Admin_contents/Edit_Contents';
+import ClosingTask from '../containers/Admin_contents/Closing_Task';
 
 function AdminContentsRouter() {
   return (

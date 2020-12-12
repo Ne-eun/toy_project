@@ -12,7 +12,7 @@ const menu = {
     {
       title: '영화속ost',
       link: '',
-    }
+    },
   ],
 };
 

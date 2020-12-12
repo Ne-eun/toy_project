@@ -1,13 +1,13 @@
-import React from "react";
+import React from 'react';
 import { withRouter } from 'react-router-dom';
-import styled from "styled-components";
-import { colorSet } from "../Atoms/theme";
-import Arrow from "../Atoms/AtomArrow";
-import GoPage from "../Atoms/AtomGo_Page";
+import styled from 'styled-components';
+import { colorSet } from '../Atoms/theme';
+import Arrow from '../Atoms/AtomArrow';
+import GoPage from '../Atoms/AtomGo_Page';
 
 const MenuNavStyle = styled.div`
   font-size: 19px;
-  color: ${ colorSet.black };
+  color: ${colorSet.black};
   font-weight: bold;
   line-height: 50px;
 
@@ -28,7 +28,6 @@ const MenuNavStyle = styled.div`
     &.on {
       max-height: 500px;
       transition: max-height 0.8s;
-
     }
 
     li {
@@ -48,16 +47,16 @@ function LeftNavMenu({ data, onClick, itemIndex, location }) {
 
   const validation = () => {
     let count = 0;
-    data.items.map(itemLink => {
-      itemLink.link === location.pathname && count++
-    })
+    data.items.map((itemLink) => {
+      itemLink.link === location.pathname && count++;
+    });
 
-    if(count > 0){
-      return true
-    }else {
-      return false
+    if (count > 0) {
+      return true;
+    } else {
+      return false;
     }
-  }
+  };
 
   return (
     <React.Fragment>
@@ -66,13 +65,13 @@ function LeftNavMenu({ data, onClick, itemIndex, location }) {
           {data.title} {data.items ? <Arrow on={data.isVisible} /> : undefined}
         </p>
         {data.items ? (
-          <ul className={(data.isVisible || validation() ) ? "on" : undefined }>
+          <ul className={data.isVisible || validation() ? 'on' : undefined}>
             {data.items.map((menuList, index) => (
               <li key={index}>
-                <GoPage 
+                <GoPage
                   to={menuList.link}
                   title={menuList.title}
-                  className={menuList.link === location.pathname ? "on" : undefined}
+                  className={menuList.link === location.pathname ? 'on' : undefined}
                 />
               </li>
             ))}

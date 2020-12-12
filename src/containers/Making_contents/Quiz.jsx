@@ -1,13 +1,13 @@
-import React, { useState } from "react";
-import styled from "styled-components";
-import RowWrap from '../../components/Atoms/AtomRowWrap'
-import Button from '../../components/Atoms/AtomButton'
-import Input from '../../components/Atoms/AtomInput'
-import Title from '../../components/Atoms/AtomTitle'
-import Textarea from "../../components/Atoms/AtomTextarea";
-import AnswerSet from '../../components/Rights/AnswerSet'
-import ExQuiz from "../../components/Rights/Ex_Quiz"
-import QuizPreview from "../../components/Rights/Quiz_Preview"
+import React, { useState } from 'react';
+import styled from 'styled-components';
+import RowWrap from '../../components/Atoms/AtomRowWrap';
+import Button from '../../components/Atoms/AtomButton';
+import Input from '../../components/Atoms/AtomInput';
+import Title from '../../components/Atoms/AtomTitle';
+import Textarea from '../../components/Atoms/AtomTextarea';
+import AnswerSet from '../../components/Rights/AnswerSet';
+import ExQuiz from '../../components/Rights/Ex_Quiz';
+import QuizPreview from '../../components/Rights/Quiz_Preview';
 
 const QuizSet = styled.div`
   padding-right: 65px;
@@ -17,27 +17,17 @@ const QuizSet = styled.div`
     border-radius: 12px;
     border: none;
   }
-`
-const RowWrapOverSize = [
-  {marginLeft: '-65px'},
-  {marginRight: '-130px'}
-]
-
+`;
+const RowWrapOverSize = [{ marginLeft: '-65px' }, { marginRight: '-130px' }];
 
 function Quiz() {
-  const [ quizs, setQuizs ] = useState([
+  const [quizs, setQuizs] = useState([
     {
-      quiz : '',
+      quiz: '',
       quizSub: '',
-      answers : [
-        '',
-        '',
-        '',
-        '',
-        '',
-      ],
-      scription : ''
-    }
+      answers: ['', '', '', '', ''],
+      scription: '',
+    },
   ]);
 
   return (
@@ -45,10 +35,7 @@ function Quiz() {
       <RowWrap style={RowWrapOverSize[0]}>
         <Title className="gray">#1</Title>
         <Input placeholder="문제를 입력해주세요" />
-        <Button
-          style={RowWrapOverSize[1]}
-          className="close"
-        ></Button>
+        <Button style={RowWrapOverSize[1]} className="close"></Button>
       </RowWrap>
       <Textarea placeholder="지문을 입력하거나 이미지를 올려주세요" />
 
@@ -61,7 +48,7 @@ function Quiz() {
 
       <Textarea rows="10" placeholder="해설을 입력해주세요 (생략 가능)" />
       <ExQuiz />
-      <div style={{textAlign: 'center'}}>
+      <div style={{ textAlign: 'center' }}>
         <Button className="mt_28 secondary">문제열에 추가하기</Button>
       </div>
       <QuizPreview data={quizs}></QuizPreview>

@@ -1,7 +1,7 @@
-import React from "react";
-import styled from "styled-components";
-import { colorSet } from "../Atoms/theme";
-import logo from "../../images/headerLogo.png";
+import React from 'react';
+import styled from 'styled-components';
+import { colorSet } from '../Atoms/theme';
+import logo from '../../images/headerLogo.png';
 
 const LeftTopStyle = styled.div`
   display: flex;
@@ -22,7 +22,7 @@ const LeftTopStyle = styled.div`
     text-align: right;
     padding-left: 8px;
     &:before {
-      content: "";
+      content: '';
       position: absolute;
       left: 10px;
       top: 8px;

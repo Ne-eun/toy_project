@@ -1,6 +1,6 @@
-import React from "react";
-import styled from "styled-components";
-import RightRouter from "../router/Right_Router";
+import React from 'react';
+import styled from 'styled-components';
+import RightRouter from '../router/Right_Router';
 
 const RightWrapStyle = styled.div`
   padding: 100px 74px 30px;

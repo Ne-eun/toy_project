@@ -62,10 +62,7 @@ function RightHeader({ data, location }) {
         {data.subtitle
           ? data.subtitle.map((submenu, index) => {
               return (
-                <li
-                  className={location.pathname === submenu.link ? 'on' : null}
-                  key={index}
-                >
+                <li className={location.pathname === submenu.link ? 'on' : null} key={index}>
                   <Link to={submenu.link}>{submenu.title}</Link>
                 </li>
               );

@@ -1,23 +1,22 @@
-import React from "react";
+import React from 'react';
 import Select from 'react-select';
 
-import VideoYoutube from '../../components/Atoms/AtomsVideo'
-import Input from '../../components/Atoms/AtomInput'
-import Label from '../../components/Atoms/AtomLabel'
-import LayoutFlex from "../../components/Atoms/AtomLayoutFlex";
-import FieldSet from '../../components/Atoms/AtomFieldSet'
-import Title from '../../components/Atoms/AtomTitle'
-import Textarea from "../../components/Atoms/AtomTextarea";
-import Button from '../../components/Atoms/AtomButton'
+import VideoYoutube from '../../components/Atoms/AtomsVideo';
+import Input from '../../components/Atoms/AtomInput';
+import Label from '../../components/Atoms/AtomLabel';
+import LayoutFlex from '../../components/Atoms/AtomLayoutFlex';
+import FieldSet from '../../components/Atoms/AtomFieldSet';
+import Title from '../../components/Atoms/AtomTitle';
+import Textarea from '../../components/Atoms/AtomTextarea';
+import Button from '../../components/Atoms/AtomButton';
 
 const LeftSize = {
-  width: '100%'
-}
+  width: '100%',
+};
 const rightSize = {
   minWidth: '260px',
-  marginLeft: '22px'
-
-}
+  marginLeft: '22px',
+};
 
 const selectOpt = [
   { value: '1', label: '추천 학습과정' },
@@ -34,26 +33,29 @@ const youtubeOpt = {
   },
 };
 
-
 function Video() {
-  return(
+  return (
     <React.Fragment>
       <LayoutFlex>
         <div style={LeftSize}>
           <Label name="video_url">영상 주소*</Label>
-          <Input placeholder="영상주소를 입력하세요" name="video_url"/>
-          <Input name="video_title" value="Why Alien Life Would be our Doom - The Great Filter" disabled />
-          
+          <Input placeholder="영상주소를 입력하세요" name="video_url" />
+          <Input
+            name="video_title"
+            value="Why Alien Life Would be our Doom - The Great Filter"
+            disabled
+          />
+
           <VideoYoutube options={youtubeOpt} videoId="5fNYKEptpcg" />
         </div>
         <div style={rightSize}>
           <Label name="category">카테고리*</Label>
-          <Select options={selectOpt} isMulti/>
+          <Select options={selectOpt} isMulti />
         </div>
       </LayoutFlex>
       <FieldSet>
         <Label name="class_title">수업 제목*</Label>
-        <Input placeholder="수업 제목을 입력하세요" name="class_title"/>
+        <Input placeholder="수업 제목을 입력하세요" name="class_title" />
       </FieldSet>
       <FieldSet>
         <Label name="class_title">영어 가사/캡션</Label>
@@ -62,7 +64,7 @@ function Video() {
       </FieldSet>
       <Button className="mt_32 pull_right">저장하고 다음으로</Button>
     </React.Fragment>
-  )
+  );
 }
 
 export default Video;

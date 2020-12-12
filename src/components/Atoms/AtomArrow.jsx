@@ -1,45 +1,32 @@
-import React from "react";
-import styled, { css } from "styled-components";
-import { colorSet } from "./theme";
+import React from 'react';
+import styled, { css } from 'styled-components';
+import { colorSet } from './theme';
 
 const ArrowStyle = styled.span`
-  ${props => {
-    const {
- color, left, top, size, on 
-} = props;
+  ${(props) => {
+    const { color, left, top, size, on } = props;
 
     return css`
       position: absolute;
-      right: ${left || "2px"};
-      top: ${top || "20px"};
+      right: ${left || '2px'};
+      top: ${top || '20px'};
       &:after {
         display: block;
-        content: "";
-        width: ${size || "7px"};
-        height: ${size || "7px"};
+        content: '';
+        width: ${size || '7px'};
+        height: ${size || '7px'};
         border: 2px solid ${color || colorSet.primary};
         border-left: none;
         border-top: none;
-        transform: ${on ? "rotate(-135deg)" : "rotate(45deg)"};
+        transform: ${on ? 'rotate(-135deg)' : 'rotate(45deg)'};
         transition: transform 0.2s;
       }
     `;
   }}
 `;
 
-function Arrow({
- color, left, top, size, on, ...rest 
-}) {
-  return (
-    <ArrowStyle
-      color={color}
-      left={left}
-      top={top}
-      size={size}
-      on={on}
-      {...rest}
-    />
-  );
+function Arrow({ color, left, top, size, on, ...rest }) {
+  return <ArrowStyle color={color} left={left} top={top} size={size} on={on} {...rest} />;
 }
 
 export default Arrow;

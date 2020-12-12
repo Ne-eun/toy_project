@@ -1,10 +1,10 @@
-import React from "react";
-import { Link, NavLink } from "react-router-dom";
-import styled, { css } from "styled-components";
-import { colorSet } from "./theme";
+import React from 'react';
+import { Link, NavLink } from 'react-router-dom';
+import styled, { css } from 'styled-components';
+import { colorSet } from './theme';
 
 const GoPageStyle = styled(Link, NavLink)`
-  ${props => {
+  ${(props) => {
     const { color, underline } = props;
 
     return css`
@@ -12,7 +12,7 @@ const GoPageStyle = styled(Link, NavLink)`
       padding-left: 4px;
       font-size: 15px;
       color: ${color || colorSet.black};
-      text-decoration: ${underline ? "underline" : "none"};
+      text-decoration: ${underline ? 'underline' : 'none'};
       font-weight: 400;
 
       &:hover,
