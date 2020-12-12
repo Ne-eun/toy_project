@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import { colorSet } from "../Atoms/theme";
 
@@ -9,6 +9,7 @@ const CaptionBoxStyle = styled.div`
 	color: ${colorSet.subtitle};
 	font-weight: 300;
 	font-size: 18px;
+	box-shadow: 0 3px 6px ${colorSet.shadow};
 
 	.caption_wrap {
 		display: flex;
@@ -24,21 +25,35 @@ const CaptionBoxStyle = styled.div`
 		}
 		textarea {
 			width: 100%;
-			height: auto;
+			color: ${colorSet.subtitle};
+			font-weight: 300;
+			font-size: 18px;
 			border: none;
-			line-height: 2;
+			line-height: 1.5;
 			background-color: transparent;
+			resize: vertical;
 		}
 	}
 `
 
 function Caption({ data }) {
+	const [ caption , setCaption ] = useState(data);
+
+	function changeCaption(e, index) {
+		// Caption's now data to change
+		let thisCaption = e.target.value;
+		let changedata = caption
+		
+		changedata[index] = thisCaption
+		setCaption([...changedata])
+	}
+
   return (
 		<CaptionBoxStyle>
-			{ data ? data.map((caption, index) => (
-				<div className="caption_wrap">
-						<div key={index} className="line_decolation">#</div>
-						<textarea value={caption} disabled />
+			{ caption ? caption.map((caption, index) => (
+				<div key={index} className="caption_wrap">
+						<div className="line_decolation">#</div>
+						<textarea rows="2" value={caption} onChange={(e) => {changeCaption(e, index)}}></textarea>
 				</div>
 			)) : null}
 		</CaptionBoxStyle>

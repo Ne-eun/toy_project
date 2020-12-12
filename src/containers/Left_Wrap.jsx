@@ -51,11 +51,11 @@ const MENU = [
     items: [
       {
         title: "콘텐츠 관리",
-        link: ""
+        link: "/admin"
       },
       {
         title: "과제마감 관리",
-        link: ""
+        link: "/admin/task"
       }
     ]
   },
@@ -87,7 +87,7 @@ function LeftWrap() {
         <LeftNavMenu key={index} data={menus} onClick={selectIndex} itemIndex={index} />
       ))}
 
-      <GoPage title="1hour로 돌아가기" underline />
+      <GoPage title="1hour로 돌아가기" underline="true" />
     </LeftWrapStyle>
   );
 }

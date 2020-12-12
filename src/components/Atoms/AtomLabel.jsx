@@ -15,7 +15,7 @@ const LabelStyle = styled.label`
 
 function Label({ name, children, className }) {
   return (
-		<LabelStyle className={className} for={name}>{children}</LabelStyle>
+		<LabelStyle className={className} htmlFor={name}>{children}</LabelStyle>
   );
 }
 

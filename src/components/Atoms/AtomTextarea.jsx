@@ -14,6 +14,10 @@ const TextareaStyle = styled.textarea`
 	box-sizing: border-box;
 	resize: none;
 	height: ${props => props.height + 'px'};
+	&::placeholder {
+		color: #c5c4c4;
+		font-weight: 300;
+	}
 `
 
 function Textarea({ placeholder, children }) {
@@ -22,9 +26,10 @@ function Textarea({ placeholder, children }) {
 	
 	const changeHeight = (e) => {
 		let thisHeight = e.target.scrollHeight;
-		console.log(thisHeight);
 		if(thisHeight > minHeight) {
 			setHeight(thisHeight);
+		} else {
+			setHeight(minHeight);
 		}
 	}
 
