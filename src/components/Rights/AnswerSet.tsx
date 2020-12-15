@@ -1,9 +1,13 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import { colorSet } from '../Atoms/theme';
-import Button from '../../components/Atoms/AtomButton';
-import CheckInput from './Check_Input';
+import Button from '../Atoms/AtomButton';
+import CheckInput from './CheckInput';
 
+interface answerProps {
+  num: string;
+  placeholder: string;
+}
 const AnswerSetStyle = styled.div`
   width: 100%;
   display: flex;
@@ -24,12 +28,12 @@ const RoundNumstyle = styled.div`
   text-align: center;
   line-height: 1.3;
 `;
-function AnswerSet({ num, placeholder }) {
+function AnswerSet({ num, placeholder }: answerProps) {
   return (
     <AnswerSetStyle>
       <RoundNumstyle className={num}>{num}</RoundNumstyle>
-      <CheckInput placeholder={placeholder}></CheckInput>
-      <Button className="close ml_12"></Button>
+      <CheckInput value="" placeholder={placeholder}></CheckInput>
+      <Button className="close" style="marginLeft: 12px"></Button>
     </AnswerSetStyle>
   );
 }

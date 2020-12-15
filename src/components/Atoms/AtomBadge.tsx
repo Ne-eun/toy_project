@@ -2,6 +2,11 @@ import React from 'react';
 import styled from 'styled-components';
 import { colorSet } from './theme';
 
+interface badgeProps {
+  className?: 'secondary';
+  children: React.ReactNode;
+}
+
 const BadgeStyle = styled.span`
   font-size: 10px;
   background-color: ${colorSet.primary};
@@ -17,7 +22,7 @@ const BadgeStyle = styled.span`
   }
 `;
 
-function Badge({ className, children, ...rest }) {
+function Badge({ className, children, ...rest }: badgeProps) {
   return (
     <BadgeStyle className={className} {...rest}>
       {children}

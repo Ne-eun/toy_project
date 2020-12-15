@@ -2,6 +2,12 @@ import React from 'react';
 import styled from 'styled-components';
 import { colorSet } from './theme';
 
+interface labelProps {
+  name: string;
+  children: React.ReactNode;
+  className?: 'mid';
+}
+
 const LabelStyle = styled.label`
   display: inline-block;
   font-size: 17px;
@@ -13,7 +19,7 @@ const LabelStyle = styled.label`
   }
 `;
 
-function Label({ name, children, className }) {
+function Label({ name, children, className }: labelProps) {
   return (
     <LabelStyle className={className} htmlFor={name}>
       {children}

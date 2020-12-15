@@ -2,6 +2,13 @@ import React from 'react';
 import styled from 'styled-components';
 import { colorSet } from './theme';
 
+interface inputProps {
+  placeholder: string;
+  value?: string;
+  disabled?: boolean;
+  name?: string;
+}
+
 const InputStyle = styled.input`
   width: 100%;
   padding: 18px;
@@ -26,7 +33,7 @@ const InputStyle = styled.input`
   }
 `;
 
-function InputSet({ placeholder, value, disabled, name }) {
+function InputSet({ placeholder, value, disabled, name }: inputProps) {
   return <InputStyle name={name} placeholder={placeholder} value={value} disabled={disabled} />;
 }
 

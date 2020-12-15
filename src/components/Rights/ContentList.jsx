@@ -5,7 +5,7 @@ import Title from '../Atoms/AtomTitle';
 import Thum from '../Atoms/AtomThum';
 import Badge from '../Atoms/AtomBadge';
 import Switch from '../Atoms/AtomSwitch';
-import SettingSet from '../../components/Rights/SettingSet';
+import SettingSet from './SettingSet';
 
 const ContentListStyle = styled.div`
   display: flex;
@@ -30,9 +30,7 @@ const SwitchWrapStyle = styled.div`
 function ContentList() {
   return (
     <ContentListStyle>
-      <div style={{ width: '200px' }}>
-        <Thum></Thum>
-      </div>
+      <div style={{ width: '200px' }}>{/* <Thum></Thum> */}</div>
       <ContentInfoStyle>
         <Title className="sub">시사상식</Title>
         <Title className="mid bold">노래 가사로 배우는 영어 회화 1</Title>

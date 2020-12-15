@@ -1,6 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
 
+interface rowWrapProps {
+  className?: string;
+  children: React.ReactNode;
+}
+
 const RowStyle = styled.div`
   width: 100%;
   display: flex;
@@ -20,7 +25,7 @@ const RowStyle = styled.div`
   }
 `;
 
-function RowWrap({ children, className, ...rest }) {
+function RowWrap({ children, className, ...rest }: rowWrapProps) {
   return (
     <RowStyle className={className} {...rest}>
       {children}

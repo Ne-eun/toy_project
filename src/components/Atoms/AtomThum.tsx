@@ -2,6 +2,11 @@ import React from 'react';
 import styled from 'styled-components';
 import { colorSet } from './theme';
 
+interface thumProps {
+  src: string;
+  className?: string;
+}
+
 const ThumStyle = styled.div`
   position: relative;
   width: 100%;
@@ -17,7 +22,7 @@ const ThumStyle = styled.div`
   }
 `;
 
-function Thum({ src, className }) {
+function Thum({ src, className }: thumProps) {
   return (
     <ThumStyle className="thumb">
       <img className={className} src={src} />

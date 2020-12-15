@@ -6,14 +6,33 @@ import plus from '../../images/addRow.png';
 import closeX from '../../images/delete.png';
 import setting from '../../images/setting.png';
 
+interface buttonProps {
+  children?: React.ReactNode;
+  style?: string;
+  color?: string;
+  textColor?: string;
+  className?:
+    | 'small'
+    | 'center'
+    | 'pull_right'
+    | 'pull_left'
+    | 'secondary'
+    | 'white'
+    | 'info'
+    | 'gray'
+    | 'plus'
+    | 'close'
+    | 'setting';
+}
+
 const ButtonStyle = styled.button`
-  ${(props) => {
+  ${(props: buttonProps) => {
     const { color, textColor } = props;
 
     return css`
       padding: 8px 20px;
       background-color: ${color ? color : colorSet.primary};
-      color: ${textColor ? textColor : colorSet.balck};
+      color: ${textColor ? textColor : colorSet.black};
       font-size: 13px;
       font-weight: bold;
       border: none;
@@ -84,7 +103,7 @@ const ButtonStyle = styled.button`
   }}
 `;
 
-function Button({ color, textColor, className, children, ...rest }) {
+function Button({ color, textColor, className, children, ...rest }: buttonProps) {
   return (
     <ButtonStyle className={className} color={color} textColor={textColor} {...rest}>
       {children}

@@ -2,8 +2,16 @@ import React from 'react';
 import styled, { css } from 'styled-components';
 import { colorSet } from './theme';
 
+interface ArrowProps {
+  on: boolean;
+  color?: string;
+  left?: string;
+  top?: string;
+  size?: string;
+}
+
 const ArrowStyle = styled.span`
-  ${(props) => {
+  ${(props: ArrowProps) => {
     const { color, left, top, size, on } = props;
 
     return css`
@@ -25,7 +33,7 @@ const ArrowStyle = styled.span`
   }}
 `;
 
-function Arrow({ color, left, top, size, on, ...rest }) {
+function Arrow({ color, left, top, size, on, ...rest }: ArrowProps) {
   return <ArrowStyle color={color} left={left} top={top} size={size} on={on} {...rest} />;
 }
 

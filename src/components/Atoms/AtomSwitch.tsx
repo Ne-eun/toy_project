@@ -2,6 +2,10 @@ import React from 'react';
 import styled from 'styled-components';
 import { colorSet } from './theme';
 
+interface switchProps {
+  className?: 'on';
+}
+
 const SwitchStyle = styled.span`
   display: inline-block;
   position: relative;
@@ -29,7 +33,7 @@ const SwitchStyle = styled.span`
   }
 `;
 
-function Switch({ className }) {
+function Switch({ className }: switchProps) {
   return <SwitchStyle className={className} />;
 }
 

@@ -5,6 +5,11 @@ import { colorSet } from './theme';
 import checkBlue from '../../images/checkBlue.png';
 import checkGray from '../../images/checkGray.png';
 
+interface checkboxType {
+  value: string;
+  className?: string;
+}
+
 const CheckBoxStyle = styled.input`
   -moz-appearance: none;
   -webkit-appearance: none;
@@ -29,7 +34,7 @@ const CheckBoxStyle = styled.input`
   }
 `;
 
-function CheckBox({ value, className }) {
+function CheckBox({ value, className }: checkboxType) {
   return <CheckBoxStyle type="checkbox" className={className} value={value} />;
 }
 

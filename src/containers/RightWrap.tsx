@@ -1,5 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
+import { TMenuType } from '../pages/Administrator';
+import RightHeaderTItle from '../components/Rights/RightHeaderTitle';
+import RightHeader from '../components/Rights/Right_Header';
 import RightRouter from '../router/Right_Router';
 
 const RightWrapStyle = styled.div`
@@ -9,7 +12,7 @@ const RightWrapStyle = styled.div`
   min-width: 830px;
 `;
 
-function RightWrap() {
+function RightWrap({ menus }: TMenuType) {
   return (
     <RightWrapStyle>
       <RightRouter />

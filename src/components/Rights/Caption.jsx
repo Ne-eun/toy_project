@@ -1,6 +1,11 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import { colorSet } from '../Atoms/theme';
+import Textarea from '../Atoms/AtomTextarea';
+
+interface CaptionProps {
+  data: Array<object>;
+}
 
 const CaptionBoxStyle = styled.div`
   width: 100%;
@@ -36,17 +41,8 @@ const CaptionBoxStyle = styled.div`
   }
 `;
 
-function Caption({ data }) {
+function Caption({ data }: CaptionProps) {
   const [caption, setCaption] = useState(data);
-
-  function changeCaption(e, index) {
-    // Caption's now data to change
-    let thisCaption = e.target.value;
-    let changedata = caption;
-
-    changedata[index] = thisCaption;
-    setCaption([...changedata]);
-  }
 
   return (
     <CaptionBoxStyle>
@@ -54,13 +50,7 @@ function Caption({ data }) {
         ? caption.map((caption, index) => (
             <div key={index} className="caption_wrap">
               <div className="line_decolation">#</div>
-              <textarea
-                rows="2"
-                value={caption}
-                onChange={(e) => {
-                  changeCaption(e, index);
-                }}
-              ></textarea>
+              <Textarea placeholder="자막을 입력하세요">{caption}</Textarea>
             </div>
           ))
         : null}

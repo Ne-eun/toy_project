@@ -71,7 +71,7 @@ const QuizItemsStyle = styled.div`
     }
   }
 `;
-function ExQuiz({ data }) {
+function ExQuiz() {
   const [testdata, setTextdata] = useState([
     {
       quiz: '',

@@ -2,6 +2,12 @@ import React from 'react';
 import styled from 'styled-components';
 import YouTube from 'react-youtube';
 
+interface videoProps {
+  options: object;
+  videoId: string;
+  className: 'video169';
+}
+
 const YoutubeVideo = styled.div`
   position: relative;
   width: 100%;
@@ -16,10 +22,10 @@ const YoutubeVideo = styled.div`
   }
 `;
 
-function VideoYoutube({ options, videoId }) {
+function VideoYoutube({ options, videoId, className }: videoProps) {
   return (
     <YoutubeVideo>
-      <YouTube videoId={videoId} opts={options} className="video169" />
+      <YouTube videoId={videoId} opts={options} className={className} />
     </YoutubeVideo>
   );
 }
