@@ -1,10 +1,9 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useHistory, useLocation } from 'react-router-dom';
 import styled from 'styled-components';
-import { TMenuType, TMenuItemType } from '../../pages/Administrator';
+import { TMenuType, TMenuItemType } from '../../containers/Admins/LeftWrap';
 import { colorSet } from '../Atoms/theme';
 import Arrow from '../Atoms/AtomArrow';
-import GoPage from '../Atoms/AtomGoPage';
 
 const MenuNavStyle = styled.div`
   font-size: 19px;
@@ -35,39 +34,51 @@ const MenuNavStyle = styled.div`
       line-height: 1.5;
       margin: 10px 34px;
       font-size: 16px;
-      font-weight: normal;
+      font-weight: 300;
+      &.on {
+        font-weight: 500;
+        color: ${colorSet.black}
+      }
     }
   }
 `;
 
-function LeftNavMenu(menus: TMenuType[]) {
-  const [menu, setMenus] = React.useState(menus);
+interface LeftNavProps {
+  menus: TMenuType[];
+}
 
+function LeftNavMenu({ menus }: LeftNavProps) {
+  const [menu, setMenus] = React.useState(menus);
   let selectdMenu = new Array(menu.length).fill(false);
   const [menuvisible, setMenuvisible] = React.useState(selectdMenu);
 
-  // useEffect(() => {
-  //   menus.items
-  //     ? menus.items.map((item: object, index: number) => {
-  //         item.link === location.pathname ? ture : false;
-  //       })
-  //     : menus.map((menu: Object) => {
-  //         menu.link === location.pathname ? ture : false;
-  //       });
-  // });
   let location = useLocation();
   let history = useHistory();
 
   const onClickHandler = (index: number) => {
     selectdMenu[index] = !selectdMenu[index];
-    history.push(menus[index].link);
     setMenuvisible(selectdMenu);
+    history.push(menus[index].link);
   };
+
+  function retrunNowpath(items: {title: string, link: string}[]) {
+    let now = 0;
+
+    items.map((item) => {
+      item.link === location.pathname ? now++ : false
+    })
+
+    if(now > 0) {
+      return true
+    } else {
+      return false
+    }
+  }
 
   return (
     <React.Fragment>
-      {menus
-        ? menus.map((menu: TMenuType, index: number) => {
+      {menu
+        ? menu.map((menu: TMenuType, index: number) => {
             return (
               <MenuNavStyle>
                 <p
@@ -79,14 +90,13 @@ function LeftNavMenu(menus: TMenuType[]) {
                 </p>
 
                 {menu.items ? (
-                  <ul className={menuvisible[index] ? 'on' : undefined}>
+                  <ul className={menuvisible[index] || retrunNowpath(menu.items) ? 'on' : undefined}>
                     {menu.items.map((subMenu: TMenuItemType, index: number) => (
-                      <li key={index}>
-                        <GoPage
-                          to={subMenu.link}
-                          title={subMenu.title}
-                          className={subMenu.link === location.pathname ? 'on' : undefined}
-                        />
+                      <li
+                        key={index}
+                        className={subMenu.link === location.pathname ? 'on' : undefined}
+                        >
+                        {subMenu.title}
                       </li>
                     ))}
                   </ul>

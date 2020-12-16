@@ -10,8 +10,7 @@ const MainStyle = styled.div`
   display: flex;
   align-items: center;
   width: 100%;
-  height: 100vh;
-  background-image: url(${landingBackground});
+  height: 100%;
   text-align: center;
   box-sizing: border-box;
 `;
@@ -31,7 +30,7 @@ const ButtonPosition = {
   top: '80px',
   right: '60px',
 };
-function Main() {
+function MainLanding() {
   let history = useHistory();
 
   function onClickHandler() {
@@ -51,4 +50,4 @@ function Main() {
   );
 }
 
-export default Main;
+export default MainLanding;

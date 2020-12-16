@@ -1,9 +1,14 @@
 import React from 'react';
+import MainBackgrond from '../components/Mains/MainBackground';
 
-import MainRouter from '../router/Main_Router';
+import MainRouter from '../router/MainRouter';
 
-function Main() {
-  return <MainRouter />;
+function MainPage() {
+  return (
+    <MainBackgrond>
+      <MainRouter />
+    </MainBackgrond>
+  );
 }
 
-export default Main;
+export default MainPage;

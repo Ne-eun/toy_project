@@ -5,7 +5,7 @@ import { colorSet } from './theme';
 
 interface titleProps {
   children?: React.ReactNode;
-  className?: 'mid' | 'sub' | 'bold' | 'gray' | 'white';
+  className?: 'big' | 'mid' | 'sub' | 'bold' | 'gray' | 'white';
   style?: React.CSSProperties;
   color?: string;
 }
@@ -15,6 +15,10 @@ const TitleStyle = styled.p`
   color: ${(props: titleProps) => (props.color ? props.color : colorSet.black)};
   font-size: 18px;
   font-weight: 400;
+  &.big {
+    font-size: 26px;
+    font-weight: 600;
+  }
   &.mid {
     font-size: 16px;
   }

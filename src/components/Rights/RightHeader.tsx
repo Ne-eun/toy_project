@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
+import Title from '../Atoms/AtomTitle';
 import { colorSet } from '../Atoms/theme';
-import RightHeaderTItle from './RightHeaderTitle';
 import SubMenu from './SubMenu';
 
 const RightHeaderStyle = styled.div`
@@ -9,21 +9,22 @@ const RightHeaderStyle = styled.div`
   margin-bottom: 40px;
 `;
 
-interface rightHeaderProps {
-  headerMenu: {
+interface rightHeadertype {
+  title: string;
+  subMenu: {
     title: string;
-    submenu: {
-      title: string;
-      link: string;
-    }[];
-  };
+    link: string;
+  }[];
 }
 
-function RightHeader({ headerMenu }: rightHeaderProps) {
+interface headerMenuProps {
+  headerMenu: rightHeadertype;
+}
+function RightHeader({ headerMenu }: headerMenuProps) {
   return (
     <RightHeaderStyle>
-      <RightHeaderTItle title={headerMenu.title} />
-      <SubMenu menus={headerMenu.submenu} />
+      <Title className="big">{headerMenu.title}</Title>
+      <SubMenu menus={headerMenu.subMenu} />
     </RightHeaderStyle>
   );
 }

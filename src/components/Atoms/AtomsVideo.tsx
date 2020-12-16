@@ -11,7 +11,7 @@ interface videoProps {
 const YoutubeVideo = styled.div`
   position: relative;
   width: 100%;
-  height: 0%;
+  height: 0;
   padding-bottom: 56.2%;
   .video169 {
     position: absolute;

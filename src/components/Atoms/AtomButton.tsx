@@ -8,9 +8,10 @@ import setting from '../../images/setting.png';
 
 interface buttonProps {
   children?: React.ReactNode;
-  style?: string;
+  style?: object;
   color?: string;
   textColor?: string;
+  onClick?: () => void;
   className?:
     | 'small'
     | 'center'

@@ -1,6 +1,7 @@
 import React from 'react';
 import Select from 'react-select';
 
+import RightHeader from '../../components/Rights/RightHeader';
 import VideoYoutube from '../../components/Atoms/AtomsVideo';
 import Input from '../../components/Atoms/AtomInput';
 import Label from '../../components/Atoms/AtomLabel';
@@ -33,9 +34,36 @@ const youtubeOpt = {
   },
 };
 
+const makingContentMenu = {
+  title: '콘텐츠 만들기',
+  subMenu: [
+    {
+      title: '영상 마법사',
+      link: '/admin',
+    },
+    {
+      title: '문장 만들기',
+      link: '/admin/sentence',
+    },
+    {
+      title: '싱크 맞추기',
+      link: '/admin/sync',
+    },
+    {
+      title: '단어 만들기',
+      link: '/admin/word',
+    },
+    {
+      title: '문제 만들기',
+      link: '/admin/quiz',
+    },
+  ],
+};
+
 function Video() {
   return (
     <React.Fragment>
+      <RightHeader headerMenu={makingContentMenu} />
       <LayoutFlex>
         <div style={LeftSize}>
           <Label name="video_url">영상 주소*</Label>
@@ -46,7 +74,7 @@ function Video() {
             disabled
           />
 
-          <VideoYoutube options={youtubeOpt} videoId="5fNYKEptpcg" />
+          <VideoYoutube className="video169" options={youtubeOpt} videoId="5fNYKEptpcg" />
         </div>
         <div style={rightSize}>
           <Label name="category">카테고리*</Label>

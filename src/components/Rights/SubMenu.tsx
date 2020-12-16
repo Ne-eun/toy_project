@@ -41,21 +41,25 @@ const HeaderSubStyle = styled.ul`
     }
   }
 `;
-interface headerTitleProps {
-  menus: {
-    title: string;
-    link: string;
-  }[];
+interface subMenusType {
+  title: string;
+  link: string;
 }
 
-function SubMenu({ menus }: headerTitleProps) {
+interface menusProps {
+  menus: subMenusType[];
+}
+
+function SubMenu({ menus }: menusProps) {
   return (
     <HeaderSubStyle>
-      {menus.map((menu, index) => {
+      {menus
+        ? menus.map((menu, index) => (
         <li className={menu.link === location.pathname ? 'on' : undefined} key={index}>
           <Link to={menu.link}>{menu.title}</Link>
-        </li>;
-      })}
+        </li>
+      ))
+      : null }
     </HeaderSubStyle>
   );
 }
