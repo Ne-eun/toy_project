@@ -7,8 +7,8 @@ function Page() {
   return (
     <BrowserRouter>
       <Switch>
-        <Route exact path="/" component={MainPage} />
         <Route path="/admin" component={Administrator} />
+        <Route path="/" component={MainPage} />
       </Switch>
     </BrowserRouter>
   );

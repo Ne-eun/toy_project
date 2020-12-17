@@ -5,7 +5,7 @@ import { colorSet } from './theme';
 
 interface titleProps {
   children?: React.ReactNode;
-  className?: 'big' | 'mid' | 'sub' | 'bold' | 'gray' | 'white';
+  className?: 'big' | 'mid' | 'sub' | 'bold' | 'gray' | 'white' | string;
   style?: React.CSSProperties;
   color?: string;
 }

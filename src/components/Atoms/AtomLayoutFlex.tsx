@@ -2,13 +2,16 @@ import React from 'react';
 import styled from 'styled-components';
 
 interface layoutflexProps {
-  className?: 'justify_btw';
+  className?: 'justify_btw' | string;
   children: React.ReactNode;
 }
 const LayoutFlexStyle = styled.div`
   display: flex;
   &.justify_btw {
     justify-content: space-between;
+  }
+  &.felx_end {
+    flex-direction: row-reverse;
   }
 `;
 

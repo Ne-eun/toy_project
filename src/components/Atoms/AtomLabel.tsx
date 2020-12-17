@@ -5,7 +5,7 @@ import { colorSet } from './theme';
 interface labelProps {
   name: string;
   children: React.ReactNode;
-  className?: 'mid';
+  className?: 'mid' | 'small' | 'gray' | string;
 }
 
 const LabelStyle = styled.label`
@@ -16,6 +16,10 @@ const LabelStyle = styled.label`
   margin-bottom: 8px;
   &.mid {
     font-size: 19px;
+  }
+  &.small {
+    font-weight: 400;
+    font-size: 16px;
   }
 `;
 

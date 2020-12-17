@@ -7,6 +7,8 @@ interface inputProps {
   value?: string;
   disabled?: boolean;
   name?: string;
+  className?: string;
+  type?: string;
 }
 
 const InputStyle = styled.input`
@@ -33,8 +35,17 @@ const InputStyle = styled.input`
   }
 `;
 
-function InputSet({ placeholder, value, disabled, name }: inputProps) {
-  return <InputStyle name={name} placeholder={placeholder} value={value} disabled={disabled} />;
+function InputSet({ placeholder, value, disabled, name, className, type }: inputProps) {
+  return (
+    <InputStyle
+      type={type}
+      name={name}
+      placeholder={placeholder}
+      value={value}
+      disabled={disabled}
+      className={className}
+    />
+  );
 }
 
 export default InputSet;

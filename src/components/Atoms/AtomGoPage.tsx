@@ -7,7 +7,7 @@ interface gopageType {
   title: string;
   to: string;
   color?: string;
-  className?: 'underline' | 'on';
+  className?: 'underline' | 'on' | string;
 }
 const GoPageStyle = styled(Link)`
   ${(props) => {
