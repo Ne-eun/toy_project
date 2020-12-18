@@ -32,18 +32,16 @@ const ThrmsStyle = styled.div`
 
 interface TermsProps {
   className?: string;
+  agree: boolean;
+  onClick: () => void
 }
 
-function Terms({ className }: TermsProps) {
-  const [agreeTerms, setAgreeTerms] = useState(false);
-
+function Terms({ className, agree, onClick }: TermsProps) {
   return (
     <ThrmsStyle className={className}>
       <span
-        onClick={() => {
-          setAgreeTerms(!agreeTerms);
-        }}
-        className={agreeTerms ? 'icon on' : 'icon'}
+        onClick={onClick}
+        className={agree ? 'icon on' : 'icon'}
       ></span>
       <span className="underline">회원약관</span>및
       <span className="underline">개인정보취급방침</span>에 동의합니다
