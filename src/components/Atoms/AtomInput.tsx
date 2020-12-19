@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import styled from 'styled-components';
 import { colorSet } from './theme';
 
@@ -9,6 +9,7 @@ interface inputProps {
   name?: string;
   className?: string;
   type?: string;
+  useref?: React.MutableRefObject<HTMLInputElement | undefined>;
 }
 
 const InputStyle = styled.input`
@@ -35,7 +36,9 @@ const InputStyle = styled.input`
   }
 `;
 
-function InputSet({ placeholder, value, disabled, name, className, type }: inputProps) {
+function Input({ placeholder, value, disabled, name, className, type, useref }: inputProps) {
+  const inputref = useref;
+
   return (
     <InputStyle
       type={type}
@@ -44,8 +47,9 @@ function InputSet({ placeholder, value, disabled, name, className, type }: input
       value={value}
       disabled={disabled}
       className={className}
+      ref={inputref}
     />
   );
 }
 
-export default InputSet;
+export default Input;

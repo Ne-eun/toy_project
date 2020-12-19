@@ -23,7 +23,8 @@ interface buttonProps {
     | 'gray'
     | 'plus'
     | 'close'
-    | 'setting';
+    | 'setting'
+    | string;
 }
 
 const ButtonStyle = styled.button`

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import styled from 'styled-components';
 import Label from './AtomLabel';
 import Input from './AtomInput';
@@ -13,6 +13,7 @@ interface inputSetProps {
   LabelClass?: string;
   InputClass?: string;
   type?: string;
+  useref?: React.MutableRefObject<HTMLInputElement | undefined>;
 }
 
 const InputSetStyle = styled.div`
@@ -38,6 +39,7 @@ function InputSet({
   InputClass,
   type,
   label,
+  useref,
 }: inputSetProps) {
   return (
     <InputSetStyle>
@@ -45,6 +47,7 @@ function InputSet({
         {label}
       </Label>
       <Input
+        useref={useref}
         type={type}
         name={name}
         placeholder={placeholder}
