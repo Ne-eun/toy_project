@@ -33,7 +33,7 @@ function AnswerSet({ num, placeholder }: answerProps) {
     <AnswerSetStyle>
       <RoundNumstyle className={num}>{num}</RoundNumstyle>
       <CheckInput value="" placeholder={placeholder}></CheckInput>
-      <Button className="close" style="marginLeft: 12px"></Button>
+      <Button className="close" style={{ marginLeft: '12px' }}></Button>
     </AnswerSetStyle>
   );
 }

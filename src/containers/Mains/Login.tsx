@@ -48,7 +48,6 @@ function Login() {
         } else if (res.data.status === 1011) {
           alert('비밀번호가 일치하지 않습니다');
         } else if (res.data.status === 200) {
-          console.log(res.data.data);
           localStorage.setItem('AUTH_TOKEN', res.data.data.token);
           history.push('/admin');
         }

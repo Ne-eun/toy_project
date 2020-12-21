@@ -15,6 +15,7 @@ const TitleStyle = styled.p`
   color: ${(props: titleProps) => (props.color ? props.color : colorSet.black)};
   font-size: 18px;
   font-weight: 400;
+  word-break: keep-all;
   &.big {
     font-size: 26px;
     font-weight: 600;
@@ -35,6 +36,11 @@ const TitleStyle = styled.p`
   }
   &.white {
     color: white;
+  }
+  &.ellipsis {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
   }
 `;
 

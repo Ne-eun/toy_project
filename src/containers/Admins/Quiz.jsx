@@ -40,10 +40,10 @@ function Quiz() {
       <Textarea placeholder="지문을 입력하거나 이미지를 올려주세요" />
 
       <div className="mt_12">
-        <AnswerSet num="1" placeholder="답변을 작성해주세요" value={''}></AnswerSet>
-        <AnswerSet num="2" placeholder="답변을 작성해주세요" value={''}></AnswerSet>
-        <AnswerSet num="3" placeholder="답변을 작성해주세요" value={''}></AnswerSet>
-        <AnswerSet num="4" placeholder="답변을 작성해주세요" value={''}></AnswerSet>
+        <AnswerSet num="1" placeholder="답변을 작성해주세요" value=""></AnswerSet>
+        <AnswerSet num="2" placeholder="답변을 작성해주세요" value=""></AnswerSet>
+        <AnswerSet num="3" placeholder="답변을 작성해주세요" value=""></AnswerSet>
+        <AnswerSet num="4" placeholder="답변을 작성해주세요" value=""></AnswerSet>
       </div>
 
       <Textarea rows="10" placeholder="해설을 입력해주세요 (생략 가능)" />

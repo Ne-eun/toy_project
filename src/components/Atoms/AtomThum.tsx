@@ -13,7 +13,7 @@ const ThumStyle = styled.div`
   height: 0;
   padding-bottom: 56.2%;
   background-color: ${colorSet.backgray};
-  .img {
+  > img {
     position: absolute;
     width: 100%;
     height: 100%;

@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import { colorSet } from './theme';
 
 interface switchProps {
   className?: 'on';
+  isOn: boolean;
+  onClick: () => void;
 }
 
 const SwitchStyle = styled.span`
@@ -13,6 +15,7 @@ const SwitchStyle = styled.span`
   height: 18px;
   background-color: ${colorSet.border};
   border-radius: 9px;
+  cursor: pointer;
   &:before {
     content: '';
     position: absolute;
@@ -33,8 +36,9 @@ const SwitchStyle = styled.span`
   }
 `;
 
-function Switch({ className }: switchProps) {
-  return <SwitchStyle className={className} />;
+function Switch({ className, isOn, onClick }: switchProps) {
+  const [sitchIsOn, setSwitchIsOn] = useState(isOn);
+  return <SwitchStyle onClick={onClick} className={sitchIsOn ? `${className} on` : undefined} />;
 }
 
 export default Switch;

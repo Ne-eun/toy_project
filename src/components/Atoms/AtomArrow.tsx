@@ -3,7 +3,7 @@ import styled, { css } from 'styled-components';
 import { colorSet } from './theme';
 
 interface ArrowProps {
-  on: boolean;
+  on: number;
   color?: string;
   left?: string;
   top?: string;
@@ -26,7 +26,7 @@ const ArrowStyle = styled.span`
         border: 2px solid ${color || colorSet.primary};
         border-left: none;
         border-top: none;
-        transform: ${on ? 'rotate(-135deg)' : 'rotate(45deg)'};
+        transform: ${on === 1 ? 'rotate(-135deg)' : 'rotate(45deg)'};
         transition: transform 0.2s;
       }
     `;

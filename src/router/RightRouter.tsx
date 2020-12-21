@@ -19,7 +19,7 @@ function RightRouter({ match }: RouteComponentProps) {
       <Route path={`${match.path}/word`} component={Word} />
       <Route path={`${match.path}/quiz`} component={Quiz} />
 
-      <Route path={`${match.path}/list`} component={EditContents} />
+      <Route path={`${match.path}/list/`} component={EditContents} />
       <Route path={`${match.path}/task`} component={ClosingTask} />
 
       <Route path={`${match.path}/category`} />

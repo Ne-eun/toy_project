@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import { colorSet } from '../Atoms/theme';
 import Button from '../Atoms/AtomButton';
@@ -11,6 +11,7 @@ const SettingStyle = styled.div`
 `;
 
 const MenuWrapStyle = styled.div`
+  display: ${(props) => (props.isOn ? 'block' : 'none')};
   margin-left: 20px;
   margin-top: -20px;
   padding: 12px;
@@ -23,11 +24,21 @@ const MenuWrapStyle = styled.div`
   }
 `;
 
-function SettingSet({ children }) {
+interface settingSetProps {
+  children: React.ReactNode;
+}
+function SettingSet({ children }: settingSetProps) {
+  const [menuOn, setMenuOn] = useState(false);
+
   return (
     <SettingStyle>
-      <Button className="setting" />
-      <MenuWrapStyle>{children}</MenuWrapStyle>
+      <Button
+        onClick={() => {
+          setMenuOn(!menuOn);
+        }}
+        className="setting"
+      />
+      <MenuWrapStyle isOn={menuOn}>{children}</MenuWrapStyle>
     </SettingStyle>
   );
 }

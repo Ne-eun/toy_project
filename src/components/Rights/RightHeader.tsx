@@ -9,23 +9,28 @@ const RightHeaderStyle = styled.div`
   margin-bottom: 40px;
 `;
 
-interface rightHeadertype {
+export interface rightHeadertype {
   title: string;
   subMenu: {
     title: string;
     link: string;
+    PK?: number;
   }[];
 }
 
 interface headerMenuProps {
-  headerMenu: rightHeadertype;
+  headerMenu: rightHeadertype | undefined;
 }
 function RightHeader({ headerMenu }: headerMenuProps) {
   return (
-    <RightHeaderStyle>
-      <Title className="big">{headerMenu.title}</Title>
-      <SubMenu menus={headerMenu.subMenu} />
-    </RightHeaderStyle>
+    <React.Fragment>
+      {headerMenu ? (
+        <RightHeaderStyle>
+          <Title className="big">{headerMenu.title}</Title>
+          <SubMenu menus={headerMenu.subMenu} />
+        </RightHeaderStyle>
+      )  : null}
+    </React.Fragment>
   );
 }
 

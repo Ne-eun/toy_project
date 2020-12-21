@@ -65,13 +65,13 @@ function LeftNavMenu({ menus }: LeftNavProps) {
     let now = 0;
 
     items.map((item) => {
-      item.link === location.pathname ? now++ : false
+      item.link === location.pathname ? now++ : 0;
     })
 
     if(now > 0) {
-      return true
+      return 1;
     } else {
-      return false
+      return 0;
     }
   }
 
@@ -80,22 +80,27 @@ function LeftNavMenu({ menus }: LeftNavProps) {
       {menu
         ? menu.map((menu: TMenuType, index: number) => {
             return (
-              <MenuNavStyle>
+              <MenuNavStyle key={index}>
                 <p
                   onClick={() => {
                     onClickHandler(index);
                   }}
                 >
-                  {menu.title} {menu.items ? <Arrow on={menuvisible[index]} /> : undefined}
+                  {menu.title}{' '}
+                 {' '}
+                 {' '}
+                  {menu.items ? <Arrow on={menuvisible[index] ? 1 : 0} /> : undefined}
                 </p>
 
                 {menu.items ? (
-                  <ul className={menuvisible[index] || retrunNowpath(menu.items) ? 'on' : undefined}>
+                  <ul
+                    className={menuvisible[index] || retrunNowpath(menu.items) ? 'on' : undefined}
+                  >
                     {menu.items.map((subMenu: TMenuItemType, index: number) => (
                       <li
                         key={index}
                         className={subMenu.link === location.pathname ? 'on' : undefined}
-                        >
+                      >
                         {subMenu.title}
                       </li>
                     ))}
@@ -110,26 +115,3 @@ function LeftNavMenu({ menus }: LeftNavProps) {
 }
 
 export default LeftNavMenu;
-
-// const onToggle = id => {
-//   setUsers(
-//     users.map(user =>
-//       user.id === id ? { ...user, active: !user.active } : user
-//     )
-//   );
-// };
-// const validation = () => {
-//
-// };
-
-// const selectIndex = (index) => {
-//   const data = menu.map((data, itemIndex) => {
-//     return {
-//       ...data,
-//       isVisible: index === itemIndex ? !data.isVisible : false,
-//     };
-//   });
-//   setMenu(data);
-// };
-
-// <Arrow on={menuvisible[index] ? true : false} />
