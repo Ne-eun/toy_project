@@ -37,7 +37,7 @@ const MenuNavStyle = styled.div`
       font-weight: 300;
       &.on {
         font-weight: 500;
-        color: ${colorSet.black}
+        color: ${colorSet.black};
       }
     }
   }
@@ -49,26 +49,26 @@ interface LeftNavProps {
 
 function LeftNavMenu({ menus }: LeftNavProps) {
   const [menu, setMenus] = React.useState(menus);
-  let selectdMenu = new Array(menu.length).fill(false);
-  const [menuvisible, setMenuvisible] = React.useState(selectdMenu);
+  let selectedMenu = new Array(menu.length).fill(false);
+  const [menuvisible, setMenuvisible] = React.useState(selectedMenu);
 
   let location = useLocation();
   let history = useHistory();
 
   const onClickHandler = (index: number) => {
-    selectdMenu[index] = !selectdMenu[index];
-    setMenuvisible(selectdMenu);
+    selectedMenu[index] = !selectedMenu[index];
+    setMenuvisible(selectedMenu);
     history.push(menus[index].link);
   };
 
-  function retrunNowpath(items: {title: string, link: string}[]) {
+  function retrunNowpath(items: { title: string; link: string }[]) {
     let now = 0;
 
     items.map((item) => {
       item.link === location.pathname ? now++ : 0;
-    })
+    });
 
-    if(now > 0) {
+    if (now > 0) {
       return 1;
     } else {
       return 0;
@@ -84,23 +84,17 @@ function LeftNavMenu({ menus }: LeftNavProps) {
                 <p
                   onClick={() => {
                     onClickHandler(index);
-                  }}
-                >
-                  {menu.title}{' '}
-                 {' '}
-                 {' '}
-                  {menu.items ? <Arrow on={menuvisible[index] ? 1 : 0} /> : undefined}
+                  }}>
+                  {menu.title} {menu.items ? <Arrow on={menuvisible[index] ? 1 : 0} /> : undefined}
                 </p>
 
                 {menu.items ? (
                   <ul
-                    className={menuvisible[index] || retrunNowpath(menu.items) ? 'on' : undefined}
-                  >
+                    className={menuvisible[index] || retrunNowpath(menu.items) ? 'on' : undefined}>
                     {menu.items.map((subMenu: TMenuItemType, index: number) => (
                       <li
                         key={index}
-                        className={subMenu.link === location.pathname ? 'on' : undefined}
-                      >
+                        className={subMenu.link === location.pathname ? 'on' : undefined}>
                         {subMenu.title}
                       </li>
                     ))}

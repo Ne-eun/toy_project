@@ -1,15 +1,17 @@
-import { RouteComponentProps } from 'react-router-dom';
 import React, { useEffect, useState } from 'react';
-import ContentList from '../../components/Rights/ContentList';
+import PageNavigation from '../../components/Atoms/AtomPageNavigation';
+import ContentList, { contentsType } from '../../components/Rights/ContentList';
 import RightHeader, { rightHeadertype } from '../../components/Rights/RightHeader';
 import api from '../../router/api';
 
-function EditContents({ match }: RouteComponentProps) {
-  let categorys: rightHeadertype;
-  const [categorysData, setCategorysData] = useState();
-  const [nowCategory, setNowCategory] = useState(-1);
-  const [contents, setContents] = useState();
+function EditContents() {
+  const [contents, setContents] = useState<contentsType[]>();
+  const [categorysMenu, setCategorysMenu] = useState<rightHeadertype>();
+  const [nowCategory, setNowCategory] = useState<number>(-1);
+  const [nowPage, setNowPage] = useState<number>(1);
+  const [totalPage, setTotalPage] = useState<number>(0);
 
+  // category load
   useEffect(() => {
     api
       .get('/api/v1/category/list', {
@@ -18,19 +20,18 @@ function EditContents({ match }: RouteComponentProps) {
         },
       })
       .then((res: any) => {
-        categorys = res.data.data;
-        setCategorysData({
+        let categorys = res.data.data;
+        setCategorysMenu({
           title: '콘텐츠 관리',
           subMenu: [
             {
               title: '전체 영상',
-              link: match.path + '-1',
+              link: -1,
             },
-            ...categorys.map((menu: { title: string; link: string }) => {
+            ...categorys.map((menu: { name: string; category: number }) => {
               return {
-                PK: menu.category,
                 title: menu.name,
-                link: match.path + menu.category.toString(),
+                link: menu.category,
               };
             }),
           ],
@@ -38,22 +39,29 @@ function EditContents({ match }: RouteComponentProps) {
       });
   }, []);
 
+  // Content list load
   useEffect(() => {
     api
-      .get(`/api/v1/contents/list/${nowCategory}/${1}`, {
+      .get(`/api/v1/contents/list/${nowCategory}/${nowPage}`, {
         headers: {
           Authorization: localStorage.getItem('AUTH_TOKEN'),
         },
       })
       .then((res: any) => {
         setContents(res.data.data.rows);
+        setTotalPage(res.data.data.total);
       });
-  }, []);
+  }, [nowCategory, nowPage]);
+
+  function changeCategory(categoryPK: number) {
+    setNowCategory(categoryPK);
+  }
 
   return (
     <React.Fragment>
-      <RightHeader headerMenu={categorysData} />
+      <RightHeader headerMenu={categorysMenu} nowFilter={nowCategory} onClick={changeCategory} />
       <ContentList contents={contents}></ContentList>
+      <PageNavigation nowPage={nowPage} pageLength={totalPage} />
     </React.Fragment>
   );
 }

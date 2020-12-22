@@ -7,6 +7,7 @@ import Badge from '../Atoms/AtomBadge';
 import Switch from '../Atoms/AtomSwitch';
 import SettingSet from './SettingSet';
 import api from '../../router/api';
+import { GetYoutubeId } from '../general';
 
 const ContentListStyle = styled.div`
   display: flex;
@@ -32,7 +33,7 @@ const SwitchWrapStyle = styled.div`
   text-align: center;
 `;
 
-interface contentsType {
+export interface contentsType {
   pk: number;
   title: string;
   youtubeTitle: string;
@@ -51,45 +52,38 @@ interface contentListProps {
 function ContentList({ contents }: contentListProps) {
   const [contentList, setContentList] = useState(contents);
 
+  let isHidden: boolean[] = new Array(2).fill(false);
+  const [contentHidden, setContentHidden] = useState(isHidden);
+
   useEffect(() => {
     if (contents && Array.isArray(contents)) {
       contents.map((content, index) => {
-        let regexImageUrl = content.url.match(
-          /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/
-        );
-
-        if (regexImageUrl !== null) {
-          content.url = regexImageUrl[2];
-        }
+        content.url = GetYoutubeId(content.url);
+        isHidden[index] = content.hidden;
+        setContentHidden(isHidden);
         return content;
       });
       setContentList(contents);
     }
   }, [contents]);
 
-  console.log(contents);
-
   const changeHidden = (pk: number, isOn: boolean, index: number) => {
-    api
-      .post(
-        '/api/v1/contents/update/shown',
-        {
-          contents: pk,
-          isHidden: isOn,
+    let hidden = contentHidden;
+    hidden[index] = !hidden[index];
+    setContentHidden(hidden);
+    console.log('contentHidden', contentHidden);
+    api.post(
+      '/api/v1/contents/update/shown',
+      {
+        contents: pk,
+        isHidden: contentHidden[index],
+      },
+      {
+        headers: {
+          Authorization: localStorage.getItem('AUTH_TOKEN'),
         },
-        {
-          headers: {
-            Authorization: localStorage.getItem('AUTH_TOKEN'),
-          },
-        }
-      )
-      .then((res: any) => {
-        console.log(res);
-        let excontents: contentsType[] = ContentList;
-        console.log(excontents);
-        excontents[index].hidden = !excontents[index].hidden;
-        setContentList(...excontents);
-      });
+      }
+    );
   };
   return (
     <React.Fragment>
@@ -98,7 +92,7 @@ function ContentList({ contents }: contentListProps) {
             return (
               <ContentListStyle key={index}>
                 <div style={{ minWidth: '200px' }}>
-                  <Thum src={`http://img.youtube.com/vi/${content.url}/0.jpg`}></Thum>
+                  <Thum src={`http://img.youtube.com/vi/${content.url}/mqdefault.jpg`}></Thum>
                 </div>
                 <ContentInfoStyle>
                   <Title className="sub ellipsis">{content.category}</Title>
@@ -115,10 +109,12 @@ function ContentList({ contents }: contentListProps) {
 
                 <SwitchWrapStyle>
                   <Switch
-                    onClick={() => changeHidden(content.pk, !content.hidden, index)}
-                    isOn={content.hidden ? false : true}
+                    onClick={() => changeHidden(content.pk, !contentHidden[index], index)}
+                    isOn={contentHidden[index] ? false : true}
                   />
-                  <Title className="sub">{content.hidden ? '영상 비공개중' : '영상 공개중'}</Title>
+                  <Title className="sub">
+                    {contentHidden[index] ? '영상 비공개중' : '영상 공개중'}
+                  </Title>
                 </SwitchWrapStyle>
 
                 <SettingSet>
