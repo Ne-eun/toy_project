@@ -10,7 +10,6 @@ const AdminStyle = styled.div`
 `;
 
 function Administrator({ match, history, location }: RouteComponentProps) {
-  console.log();
   return (
     <AdminStyle>
       <LeftWrap />

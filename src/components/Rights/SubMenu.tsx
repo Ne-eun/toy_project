@@ -15,6 +15,7 @@ const HeaderSubStyle = styled.ul`
     text-align: center;
     padding: 12px 8px;
     box-sizing: border-box;
+    cursor: pointer;
     & + li {
       margin-left: 16px;
     }

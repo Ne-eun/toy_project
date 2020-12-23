@@ -36,9 +36,8 @@ const SwitchStyle = styled.span`
   }
 `;
 
-function Switch({ className, isOn, onClick }: switchProps) {
-  const [sitchIsOn, setSwitchIsOn] = useState(isOn);
-  return <SwitchStyle onClick={onClick} className={sitchIsOn ? `${className} on` : undefined} />;
+function Switch({ isOn, onClick }: switchProps) {
+  return <SwitchStyle onClick={onClick} className={isOn ? 'on' : undefined} />;
 }
 
 export default Switch;

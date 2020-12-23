@@ -1,5 +1,7 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
 import Select from 'react-select';
+import api from '../../router/api';
 
 import RightHeader from '../../components/Rights/RightHeader';
 import VideoYoutube from '../../components/Atoms/AtomsVideo';
@@ -10,14 +12,6 @@ import FieldSet from '../../components/Atoms/AtomFieldSet';
 import Title from '../../components/Atoms/AtomTitle';
 import Textarea from '../../components/Atoms/AtomTextarea';
 import Button from '../../components/Atoms/AtomButton';
-
-const LeftSize = {
-  width: '100%',
-};
-const rightSize = {
-  minWidth: '260px',
-  marginLeft: '22px',
-};
 
 const selectOpt = [
   { value: '1', label: '추천 학습과정' },
@@ -39,7 +33,7 @@ const makingContentMenu = {
   subMenu: [
     {
       title: '영상 마법사',
-      link: '/admin',
+      link: '/admin/video',
     },
     {
       title: '문장 만들기',
@@ -60,12 +54,37 @@ const makingContentMenu = {
   ],
 };
 
+const editingContentMenu = {
+  ...makingContentMenu,
+  title: '콘텐츠 수정',
+};
+
 function Video() {
+  const [editContent, seteditContent] = useState<object>(); //Edit - 컨텐츠 데이터
+  const [YoutubeVideoID, setYoutubeVideoID] = useState<string>('');
+  let { contentPK } = useParams<{ contentPK: string | undefined }>(); //Edit - 컨텐츠 고유 넘버
+
+  //test contentPK 42
+  useEffect(() => {
+    if (contentPK !== undefined) {
+      api
+        .get(`/api/v1/contents/load/init/${contentPK}`, {
+          headers: {
+            Authorization: localStorage.getItem('AUTH_TOKEN'),
+          },
+        })
+        .then((res: any) => {
+          console.log(res.data.data);
+          seteditContent(res.data.data);
+        });
+    }
+  }, [contentPK]);
+
   return (
     <React.Fragment>
       <RightHeader headerMenu={makingContentMenu} />
       <LayoutFlex>
-        <div style={LeftSize}>
+        <div style={{ width: '100%' }}>
           <Label name="video_url">영상 주소*</Label>
           <Input placeholder="영상주소를 입력하세요" name="video_url" />
           <Input
@@ -74,9 +93,10 @@ function Video() {
             disabled
           />
 
-          <VideoYoutube className="video169" options={youtubeOpt} videoId="5fNYKEptpcg" />
+          {}
+          <VideoYoutube className="video169" options={youtubeOpt} videoId={YoutubeVideoID} />
         </div>
-        <div style={rightSize}>
+        <div style={{ minWidth: '260px', marginLeft: '22px' }}>
           <Label name="category">카테고리*</Label>
           <Select options={selectOpt} isMulti />
         </div>

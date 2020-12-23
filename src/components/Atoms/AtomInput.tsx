@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { colorSet } from './theme';
 
 interface inputProps {
-  placeholder: string;
+  placeholder?: string;
   value?: string;
   disabled?: boolean;
   name?: string;

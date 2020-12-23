@@ -70,8 +70,7 @@ function ContentList({ contents }: contentListProps) {
   const changeHidden = (pk: number, isOn: boolean, index: number) => {
     let hidden = contentHidden;
     hidden[index] = !hidden[index];
-    setContentHidden(hidden);
-    console.log('contentHidden', contentHidden);
+    setContentHidden({ ...hidden });
     api.post(
       '/api/v1/contents/update/shown',
       {
@@ -85,6 +84,7 @@ function ContentList({ contents }: contentListProps) {
       }
     );
   };
+
   return (
     <React.Fragment>
       {contentList
@@ -99,10 +99,9 @@ function ContentList({ contents }: contentListProps) {
                   <Title className="mid bold ellipsis">{content.title}</Title>
                   <Title className="sub ellipsis">{content.youtubeTitle}</Title>
                   <div>
-                    <Badge>단어</Badge>
-                    <Badge>문장</Badge>
-                    <Badge>더빙</Badge>
-                    <Badge>문제</Badge>
+                    {content.problems.split(',').map((bedge, index) => (
+                      bedge === " " ? null : <Badge key={index}>{bedge}</Badge>
+                      ))}
                   </div>
                   <Title className="sub">{content.registered}</Title>
                 </ContentInfoStyle>

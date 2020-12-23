@@ -4,12 +4,12 @@ import ContentList, { contentsType } from '../../components/Rights/ContentList';
 import RightHeader, { rightHeadertype } from '../../components/Rights/RightHeader';
 import api from '../../router/api';
 
-function EditContents() {
+function ContentsList() {
   const [contents, setContents] = useState<contentsType[]>();
   const [categorysMenu, setCategorysMenu] = useState<rightHeadertype>();
   const [nowCategory, setNowCategory] = useState<number>(-1);
   const [nowPage, setNowPage] = useState<number>(1);
-  const [totalPage, setTotalPage] = useState<number>(0);
+  const [totalRows, setTotalRows] = useState<number>(0);
 
   // category load
   useEffect(() => {
@@ -49,7 +49,8 @@ function EditContents() {
       })
       .then((res: any) => {
         setContents(res.data.data.rows);
-        setTotalPage(res.data.data.total);
+        setTotalRows(res.data.data.total);
+        console.log(res.data.data);
       });
   }, [nowCategory, nowPage]);
 
@@ -57,13 +58,17 @@ function EditContents() {
     setNowCategory(categoryPK);
   }
 
+  function toPage(pageNumber: number) {
+    setNowPage(pageNumber);
+  }
+
   return (
     <React.Fragment>
       <RightHeader headerMenu={categorysMenu} nowFilter={nowCategory} onClick={changeCategory} />
       <ContentList contents={contents}></ContentList>
-      <PageNavigation nowPage={nowPage} pageLength={totalPage} />
+      <PageNavigation nowPage={nowPage} totalRows={totalRows} clickPage={toPage} />
     </React.Fragment>
   );
 }
 
-export default EditContents;
+export default ContentsList;

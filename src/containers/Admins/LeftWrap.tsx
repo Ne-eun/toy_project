@@ -21,11 +21,11 @@ const LeftWrapStyle = styled.div`
 const MENU = [
   {
     title: '콘텐츠 만들기',
-    link: '/admin',
+    link: '/admin/video',
     items: [
       {
         title: '영상 마법사',
-        link: '/admin',
+        link: '/admin/video',
       },
       {
         title: '문장 만들기',
