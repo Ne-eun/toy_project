@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
-import LayoutFlex from '../../components/Atoms/AtomLayoutFlex';
-import Label from '../../components/Atoms/AtomLabel';
-import Title from '../../components/Atoms/AtomTitle';
-import Caption from '../../components/Rights/Caption';
-import Button from '../../components/Atoms/AtomButton';
+import React, { useEffect, useState } from 'react';
+import LayoutFlex from '../../../components/Atoms/AtomLayoutFlex';
+import Label from '../../../components/Atoms/AtomLabel';
+import Title from '../../../components/Atoms/AtomTitle';
+import Caption from '../../../components/Rights/Caption';
+import Button from '../../../components/Atoms/AtomButton';
+import api from '../../../router/api';
 
 const LeftSize = {
   width: '100%',
@@ -28,10 +29,17 @@ const CaptionsKo = [
   '한국한국LoremLoremLoremLoremLoremLoremLorem iverra sem.',
 ];
 
-function Sentence() {
+interface VideoProps {
+  contentKey?: string | undefined;
+}
+
+function Sentence({ contentKey }: VideoProps) {
   const [captionEn, useCaptionEn] = useState(CaptionsEn);
   const [captionKo, useCaptionKo] = useState(CaptionsKo);
 
+  useEffect(() => {
+    api.get;
+  });
   return (
     <React.Fragment>
       <LayoutFlex className="justify_btw">

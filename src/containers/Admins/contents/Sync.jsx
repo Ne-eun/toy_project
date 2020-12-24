@@ -1,10 +1,10 @@
 import React from 'react';
-import LayoutFlex from '../../components/Atoms/AtomLayoutFlex';
-import VideoYoutube from '../../components/Atoms/AtomsVideo';
-import Title from '../../components/Atoms/AtomTitle';
-import { colorSet } from '../../components/Atoms/theme';
-import SyncSettingSet from '../../components/Rights/Sync_Setting_Set';
-import Button from '../../components/Atoms/AtomButton';
+import LayoutFlex from '../../../components/Atoms/AtomLayoutFlex';
+import VideoYoutube from '../../../components/Atoms/AtomsVideo';
+import Title from '../../../components/Atoms/AtomTitle';
+import { colorSet } from '../../../components/Atoms/theme';
+import SyncSettingSet from '../../../components/Rights/Sync_Setting_Set';
+import Button from '../../../components/Atoms/AtomButton';
 
 const youtubeOpt = {
   width: '100%',
@@ -31,7 +31,7 @@ const CaptionsEn = [
   'LoremLoremLoremLoremLoremLo turpis, ut viverra sem.',
 ];
 
-function Sync() {
+function Sync({ contentKey }) {
   return (
     <React.Fragment>
       <LayoutFlex>

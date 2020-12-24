@@ -49,7 +49,7 @@ function Login() {
           alert('비밀번호가 일치하지 않습니다');
         } else if (res.data.status === 200) {
           localStorage.setItem('AUTH_TOKEN', res.data.data.token);
-          history.push('/admin/video');
+          history.push('/admin/content/video');
         }
       })
       .catch((error: any) => console.log(error));

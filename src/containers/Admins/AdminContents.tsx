@@ -4,7 +4,7 @@ import ContentList, { contentsType } from '../../components/Rights/ContentList';
 import RightHeader, { rightHeadertype } from '../../components/Rights/RightHeader';
 import api from '../../router/api';
 
-function ContentsList() {
+function AdminContents() {
   const [contents, setContents] = useState<contentsType[]>();
   const [categorysMenu, setCategorysMenu] = useState<rightHeadertype>();
   const [nowCategory, setNowCategory] = useState<number>(-1);
@@ -71,4 +71,4 @@ function ContentsList() {
   );
 }
 
-export default ContentsList;
+export default AdminContents;

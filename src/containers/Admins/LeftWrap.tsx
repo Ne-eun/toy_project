@@ -21,27 +21,27 @@ const LeftWrapStyle = styled.div`
 const MENU = [
   {
     title: '콘텐츠 만들기',
-    link: '/admin/video',
+    link: '/admin/content/video',
     items: [
       {
         title: '영상 마법사',
-        link: '/admin/video',
+        link: '/admin/content/video',
       },
       {
         title: '문장 만들기',
-        link: '/admin/sentence',
+        link: '/admin/content/sentence',
       },
       {
         title: '싱크 맞추기',
-        link: '/admin/sync',
+        link: '/admin/content/sync',
       },
       {
         title: '단어 만들기',
-        link: '/admin/word',
+        link: '/admin/content/word',
       },
       {
         title: '문제 만들기',
-        link: '/admin/quiz',
+        link: '/admin/content/quiz',
       },
     ],
   },

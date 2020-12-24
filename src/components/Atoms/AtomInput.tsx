@@ -9,7 +9,7 @@ interface inputProps {
   name?: string;
   className?: string;
   type?: string;
-  useref?: React.MutableRefObject<HTMLInputElement | undefined>;
+  useref?: React.MutableRefObject<HTMLInputElement | null>;
 }
 
 const InputStyle = styled.input`

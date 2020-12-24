@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import LayoutFlex from '../../components/Atoms/AtomLayoutFlex';
-import Button from '../../components/Atoms/AtomButton';
-import Input from '../../components/Atoms/AtomInput';
-import Title from '../../components/Atoms/AtomTitle';
-import RowWrap from '../../components/Atoms/AtomRowWrap';
+import LayoutFlex from '../../../components/Atoms/AtomLayoutFlex';
+import Button from '../../../components/Atoms/AtomButton';
+import Input from '../../../components/Atoms/AtomInput';
+import Title from '../../../components/Atoms/AtomTitle';
+import RowWrap from '../../../components/Atoms/AtomRowWrap';
 
 const PlusButton = styled.div`
   text-align: center;
@@ -34,7 +34,7 @@ const data = [
   { en: '', ko: '' },
 ];
 
-function Word() {
+function Word({ contentKey }) {
   const [words, setWords] = useState(data);
 
   return (

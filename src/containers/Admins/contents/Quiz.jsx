@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import RowWrap from '../../components/Atoms/AtomRowWrap';
-import Button from '../../components/Atoms/AtomButton';
-import Input from '../../components/Atoms/AtomInput';
-import Title from '../../components/Atoms/AtomTitle';
-import Textarea from '../../components/Atoms/AtomTextarea';
-import AnswerSet from '../../components/Rights/AnswerSet';
-import ExQuiz from '../../components/Rights/Ex_Quiz';
-import QuizPreview from '../../components/Rights/Quiz_Preview';
+import RowWrap from '../../../components/Atoms/AtomRowWrap';
+import Button from '../../../components/Atoms/AtomButton';
+import Input from '../../../components/Atoms/AtomInput';
+import Title from '../../../components/Atoms/AtomTitle';
+import Textarea from '../../../components/Atoms/AtomTextarea';
+import AnswerSet from '../../../components/Rights/AnswerSet';
+import ExQuiz from '../../../components/Rights/Ex_Quiz';
+import QuizPreview from '../../../components/Rights/Quiz_Preview';
 
 const QuizSet = styled.div`
   padding-right: 65px;
@@ -20,7 +20,7 @@ const QuizSet = styled.div`
 `;
 const RowWrapOverSize = [{ marginLeft: '-65px' }, { marginRight: '-130px' }];
 
-function Quiz() {
+function Quiz({ contentKey }) {
   const [quizs, setQuizs] = useState([
     {
       quiz: '',
